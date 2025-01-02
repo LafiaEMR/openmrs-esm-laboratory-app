@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { ConfigurableLink } from '@openmrs/esm-framework';
 import { BrowserRouter, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import LafiaLaboratoryIcon from '../public/lafia-laboratory-icon';
+import styles from './createDashboardLink.scss';
 
 export interface DashboardLinkConfig {
   name: string;
@@ -24,9 +26,10 @@ function DashboardExtension({ dashboardLinkConfig }: { dashboardLinkConfig: Dash
   return (
     <ConfigurableLink
       to={`${spaBasePath}/${name}`}
-      className={`cds--side-nav__link ${navLink.match(name) && 'active-left-nav-link'}`}
+      className={`cds--side-nav__link ${navLink.match(name) ? styles.activeLeftNavLink : ''}`}
     >
-      {t(title)}
+       <div className={navLink.match(name) ? styles.activeIcon : styles.inactiveIcon}><LafiaLaboratoryIcon /></div>
+       <span className={navLink.match(name) ? styles.activeTitle : styles.inactiveTitle}>{t(title)}</span>
     </ConfigurableLink>
   );
 }

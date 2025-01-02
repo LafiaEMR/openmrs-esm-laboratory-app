@@ -7,6 +7,7 @@ import LaboratoryOrdersTabs from './lab-tabs/laboratory-tabs.component';
 import LaboratorySummaryTiles from './lab-tiles/laboratory-summary-tiles.component';
 import styles from './laboratory-dashboard.scss';
 import { type DateFilterContext } from './types';
+import LafiaLaboratoryPictogram from './public/lafia-laboratory-pictograms';
 
 const LaboratoryDashboard: React.FC = () => {
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const LaboratoryDashboard: React.FC = () => {
   return (
     <div className={`omrs-main-content`}>
       <PageHeader
-        illustration={<LaboratoryPictogram />}
+        illustration={<LafiaLaboratoryPictogram />}
         title={t('laboratory', 'Laboratory')}
         className={styles.pageHeader}
       />
